@@ -16,10 +16,5 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Boolean solicitado;
-
-    @OneToOne
-    private Solicitacao solicitacao;
-
 }

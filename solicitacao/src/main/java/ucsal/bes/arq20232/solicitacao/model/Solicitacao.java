@@ -18,15 +18,18 @@ public class Solicitacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDateTime horaReserva;
-    private Boolean isReservado;
+    private LocalDateTime horaReservaInicio;
+    private LocalDateTime horaReservaFim;
 
     @ManyToOne()
     @JoinColumn(name = "laboratorio_id")
     private Laboratorio laboratorio;
 
     @ManyToOne()
+    @JoinColumn(name = "disciplina_id")
+    private Disciplina disciplina;
+
+    @ManyToOne()
     @JoinColumn(name = "professor_id")
     private Professor professor;
-
 }

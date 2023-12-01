@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface ReservaDao extends JpaRepository<Reserva, Long> {
 
+
 }

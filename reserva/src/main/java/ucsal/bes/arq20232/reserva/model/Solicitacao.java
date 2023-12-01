@@ -18,8 +18,10 @@ public class Solicitacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDateTime horaReserva;
+    private LocalDateTime horaReservaInicio;
+    private LocalDateTime horaReservaFim;
 
     @OneToOne
+    @JoinColumn(name = "reserva_id")
     private Reserva reserva;
 }
