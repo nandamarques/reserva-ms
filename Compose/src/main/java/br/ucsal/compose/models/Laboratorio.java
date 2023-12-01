@@ -3,18 +3,16 @@ package br.ucsal.compose.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import jakarta.persistence.Id;
+import lombok.*;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class Compose {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Getter
+@Setter
+public class Laboratorio {
+
     private Long id;
-    private String justificativa;
+    private String nome;
+
 }

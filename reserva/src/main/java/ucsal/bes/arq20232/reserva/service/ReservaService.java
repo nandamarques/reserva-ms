@@ -13,10 +13,19 @@ import java.util.List;
 public class ReservaService {
     @Autowired
     private ReservaDao reservaDao;
-    private List<Solicitacao> solicitacoes = new ArrayList<>();
+
+//    @Autowired
+//    private SolicitacaoService solicitacoes;
+
+
+    Solicitacao sol = new Solicitacao();
+    
+    @Autowired
+    List<Reserva> solicitacoes = reservaDao.findAll();
+
 
     private boolean validarReserva(Solicitacao solicitacao) {
-        for (Solicitacao sol : solicitacoes){
+        for (Reserva rev : solicitacoes){
             if (solicitacao.getHoraReservaInicio().equals(sol.getHoraReservaInicio())){
                 return false;
             } else {
@@ -29,10 +38,10 @@ public class ReservaService {
     public List<Solicitacao> obterSolicitacoesNegadas() {
             List<Solicitacao> solicitacoesNegadas = new ArrayList<>();
 
-        for (Solicitacao solicitacao : solicitacoes){
-            boolean solicitacaoInvalida = validarReserva(solicitacao);
+        for (Reserva rev : solicitacoes){
+            boolean solicitacaoInvalida = validarReserva(sol);
             if(solicitacaoInvalida){
-                solicitacoesNegadas.add(solicitacao);
+                solicitacoesNegadas.add(sol);
             }
         }
         return solicitacoesNegadas;
@@ -46,7 +55,7 @@ public class ReservaService {
         Reserva reserva = reservaDao.getReferenceById(solicitacao.getReserva().getId());
         if(validarReserva(solicitacao))
             return reservaDao.save(reserva);
-        return null;
+        return reserva;
     }
 
 

@@ -15,16 +15,16 @@ public class ComposeReservaController {
     ReservaClient reservaClient;
 
     @PostMapping
-    public Reserva criarReserva(Reserva reserva){
+    public Reserva criarReserva(@RequestBody Reserva reserva){
         return reservaClient.criarReserva(reserva);
     }
 
     @PostMapping("/{id}")
-    public Reserva alterarStatusReserva(Long id){
+    public Reserva alterarStatusReserva(@PathVariable Long id){
         return reservaClient.alterarStatusReserva(id);
     }
     @DeleteMapping("/{id}")
-    public Reserva delete(Long id){
+    public Reserva delete(@PathVariable Long id){
         return reservaClient.delete(id);
     }
     @GetMapping
