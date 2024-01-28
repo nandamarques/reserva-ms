@@ -18,4 +18,7 @@ public class Solicitacao {
     private String nome;
     private LocalDateTime horaReservaInicio;
     private LocalDateTime horaReservaFim;
+    private Laboratorio laboratorio;
+    private Disciplina disciplina;
+    private Professor professor;
 }

@@ -19,9 +19,9 @@ public class SolicitacaoController {
 
     SolicitacaoService solicitacaoService;
 
-    public List<Solicitacao> listarTodos(){
-        return solicitacaoService.listarTodos();
-    }
+//    public List<Solicitacao> listarTodos(){
+//        return solicitacaoService.listarTodos();
+//    }
 
 
 }

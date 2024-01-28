@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Compose/Compose.iml" filepath="$PROJECT_DIR$/Compose/Compose.iml" />
-      <module fileurl="file://$PROJECT_DIR$/reserva/reserva.iml" filepath="$PROJECT_DIR$/reserva/reserva.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/reserva-ms.iml" filepath="$PROJECT_DIR$/.idea/reserva-ms.iml" />
-      <module fileurl="file://$PROJECT_DIR$/solicitacao/solicitacao.iml" filepath="$PROJECT_DIR$/solicitacao/solicitacao.iml" />
     </modules>
   </component>
 </project>

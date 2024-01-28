@@ -19,7 +19,7 @@ public class Professor {
     private String nome;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "disciplina_id")
+    @JoinColumn(name = "professor_id")
     private List<Disciplina> disciplinas;
 
 }

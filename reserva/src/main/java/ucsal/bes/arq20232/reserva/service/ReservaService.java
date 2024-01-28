@@ -3,6 +3,7 @@ package ucsal.bes.arq20232.reserva.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucsal.bes.arq20232.reserva.dao.ReservaDao;
+import ucsal.bes.arq20232.reserva.feing.SolicitacaoClient;
 import ucsal.bes.arq20232.reserva.model.Reserva;
 import ucsal.bes.arq20232.reserva.model.Solicitacao;
 
@@ -14,34 +15,29 @@ public class ReservaService {
     @Autowired
     private ReservaDao reservaDao;
 
-//    @Autowired
-//    private SolicitacaoService solicitacoes;
-
-
-    Solicitacao sol = new Solicitacao();
-    
     @Autowired
-    List<Reserva> solicitacoes = reservaDao.findAll();
-
+    private SolicitacaoClient solicitacaoClient;
 
     private boolean validarReserva(Solicitacao solicitacao) {
-        for (Reserva rev : solicitacoes){
-            if (solicitacao.getHoraReservaInicio().equals(sol.getHoraReservaInicio())){
-                return false;
-            } else {
+        for (Solicitacao s : findAllSolicitacoes()){
+            if (!solicitacao.getHoraReservaInicio().equals(s.getHoraReservaInicio())){
                 return true;
             }
         }
         return false;
     }
 
+    public List<Solicitacao> findAllSolicitacoes() {
+        return solicitacaoClient.listarTodos();
+    }
+
     public List<Solicitacao> obterSolicitacoesNegadas() {
             List<Solicitacao> solicitacoesNegadas = new ArrayList<>();
 
-        for (Reserva rev : solicitacoes){
-            boolean solicitacaoInvalida = validarReserva(sol);
+        for (Solicitacao s : findAllSolicitacoes()){
+            boolean solicitacaoInvalida = validarReserva(s);
             if(solicitacaoInvalida){
-                solicitacoesNegadas.add(sol);
+                solicitacoesNegadas.add(s);
             }
         }
         return solicitacoesNegadas;

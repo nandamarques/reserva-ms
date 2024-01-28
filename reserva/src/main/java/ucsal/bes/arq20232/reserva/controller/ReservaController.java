@@ -43,4 +43,8 @@ public class ReservaController {
     public Reserva alterarStatusSolicitacao(@RequestBody Solicitacao solicitacao){
         return reservaService.alterarStatusReserva(solicitacao);
     }
+    @GetMapping("/solicitacoes")
+    public List<Solicitacao> obterSolicitacoes(){
+        return reservaService.findAllSolicitacoes();
+    }
 }

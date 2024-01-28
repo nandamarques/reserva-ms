@@ -24,4 +24,8 @@ public class ComposeSolicitacaoController {
     List<Solicitacao> listarSolitacaoPorDisciplina(@PathVariable Long id){
         return solicitacaoClient.listarSolitacaoPorDisciplina(id);
     }
+    @GetMapping
+    public List<Solicitacao> listarTodos(){
+        return solicitacaoClient.listarTodos();
+    }
 }
